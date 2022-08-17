@@ -33,3 +33,4 @@ def elapsed_time_in_minutes(number_of_layers, already_elapsed):
     return the total time the lasagne is already cooked for
     """
     return (number_of_layers * PREPARATION_TIME) + already_elapsed
+
