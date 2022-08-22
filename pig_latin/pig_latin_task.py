@@ -1,3 +1,5 @@
+# Task from https://exercism.org/tracks/python/exercises/pig-latin
+
 consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"]
 
 
