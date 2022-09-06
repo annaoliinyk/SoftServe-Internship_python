@@ -1,38 +1,30 @@
 # Task from https://exercism.org/tracks/python/exercises/sublist
 
-SUBLIST = 1
-SUPERLIST = 2
-EQUAL = 3
-UNEQUAL = 4
+def sublist(list_a, list_b) -> str:
+    if type(list_a) == list and type(list_b) == list:
+        list_a = sorted(list_a)
+        list_b = sorted(list_b)
 
+        if list_a == list_b:
+            return "lists are equal"
+        elif set(list_a) >= set(list_b):
+            return "A is a superlist of B"
+        elif set(list_a) <= set(list_b):
+            return "A is sublist of B"
+        else:
+            return "lists are unequal"
 
-def sublist(list_one, list_two):
-    if list_one == list_two:
-        return 3
-    elif check_if_sublist(list_two, list_one):
-        return 1
-    elif check_if_sublist(list_one, list_two):
-        return 2
     else:
-        return 4
+        return "invalid input"
 
 
-def check_if_sublist(full_list, sub_list):
-    sub_list_as_str = convert_int_list_to_str(sub_list)
-    full_list_as_str = convert_int_list_to_str(full_list)
-
-    return sub_list_as_str in full_list_as_str and check_if_all_items_in_full_list(full_list, sub_list)
-
-
-def convert_int_list_to_str(integers_list):
-    result = ''
-    for integer in integers_list:
-        result += str(integer) + " "
-    return result
+def main():
+    print(sublist("", []))
+    print(sublist([1, 3, 5, 6], [3]))
+    print(sublist([67, 62, 34], [67, 62, 34]))
+    print(sublist([67, 62, 34], [67, 62, 34, 1]))
+    print(sublist([1, 2, 4], [3, 3, 8, 6]))
 
 
-def check_if_all_items_in_full_list(full_list, sub_list):
-    for item in sub_list:
-        if item not in full_list:
-            return False
-    return True
+if __name__ == "__main__":
+    main()
