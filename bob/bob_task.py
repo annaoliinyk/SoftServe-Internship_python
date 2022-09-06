@@ -1,10 +1,8 @@
 # Task from https://exercism.org/tracks/python/exercises/bob
 
-import re
-
 
 def response(hey_bob):
-    if hey_bob.strip() == "":
+    if hey_bob.strip() == '':
         return 'Fine. Be that way!'
 
     elif hey_bob.rstrip()[-1] is '?':
@@ -17,6 +15,17 @@ def response(hey_bob):
 
     elif hey_bob != hey_bob.lower() and hey_bob == hey_bob.upper():
         return 'Whoa, chill out!'
-
     else:
         return 'Whatever.'
+
+
+def main():
+    response("Tom-ay-to, tom-aaaah-to.")
+    response("WATCH OUT!")
+    response("FCECDFCAAB")
+    response("You are, what, like 15?")
+    response("  ")
+
+
+if __name__ == "__main__":
+    main()
