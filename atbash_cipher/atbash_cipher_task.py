@@ -1,8 +1,10 @@
 # Task from https://exercism.org/tracks/python/exercises/atbash-cipher
 
+plain_str = "abcdefghijklm0123456789nopqrstuvwxyz"
+cipher_str = "zyxwvutsrqpon0123456789mlkjihgfedcba"
+
+
 def encode(plain_text):
-    plain_str = "abcdefghijklm0123456789nopqrstuvwxyz"
-    cipher_str = "zyxwvutsrqpon0123456789mlkjihgfedcba"
     result = ""
     letters_counter = 0
     for symbol in plain_text.lower():
@@ -17,8 +19,6 @@ def encode(plain_text):
 
 
 def decode(ciphered_text):
-    plain_str = "abcdefghijklm0123456789nopqrstuvwxyz"
-    cipher_str = "zyxwvutsrqpon0123456789mlkjihgfedcba"
     result = ""
     for symbol in ciphered_text.lower():
         if symbol in cipher_str:
