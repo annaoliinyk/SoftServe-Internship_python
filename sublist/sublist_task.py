@@ -1,4 +1,9 @@
 # Task from https://exercism.org/tracks/python/exercises/sublist
+import logging
+
+
+logging.basicConfig(level=logging.DEBUG)
+
 
 def sublist(list_a, list_b) -> str:
     if type(list_a) == list and type(list_b) == list:
@@ -15,15 +20,15 @@ def sublist(list_a, list_b) -> str:
             return "lists are unequal"
 
     else:
-        return "invalid input"
+        logging.error("invalid input")
 
 
 def main():
-    print(sublist("", []))
-    print(sublist([1, 3, 5, 6], [3]))
-    print(sublist([67, 62, 34], [67, 62, 34]))
-    print(sublist([67, 62, 34], [67, 62, 34, 1]))
-    print(sublist([1, 2, 4], [3, 3, 8, 6]))
+    logging.debug(sublist("", []))
+    logging.debug(sublist([1, 3, 5, 6], [3]))
+    logging.debug(sublist([67, 62, 34], [67, 62, 34]))
+    logging.debug(sublist([67, 62, 34], [67, 62, 34, 1]))
+    logging.debug(sublist([1, 2, 4], [3, 3, 8, 6]))
 
 
 if __name__ == "__main__":
