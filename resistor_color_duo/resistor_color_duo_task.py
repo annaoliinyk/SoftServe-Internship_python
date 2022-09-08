@@ -2,9 +2,9 @@
 
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
-switch = {
+SWITCH = {
     "black": 0,
     "brown": 1,
     "red": 2,
@@ -25,11 +25,11 @@ def value(colors):
         first_color = colors[0].lower()
         try:
             if len(colors) == 1:
-                result = switch.get(first_color)
+                result = SWITCH.get(first_color)
             else:
                 second_color = colors[1].lower()
                 # to get two digits result, multiplying first digit by 10:
-                result = switch.get(first_color) * 10 + switch.get(second_color)
+                result = SWITCH.get(first_color) * 10 + SWITCH.get(second_color)
             return result
         except:
             logging.error("Invalid color provided")
@@ -38,11 +38,11 @@ def value(colors):
 
 
 def main():
-    logging.debug(value(["red"]))
-    logging.debug(value("blue"))
-    logging.debug(value(["green", "white"]))
-    logging.debug(value(["green", "while"]))
-    logging.debug(value(["green", "white", "red"]))
+    logging.info(value(["red"]))
+    logging.info(value("blue"))
+    logging.info(value(["green", "white"]))
+    logging.info(value(["green", "while"]))
+    logging.info(value(["green", "white", "red"]))
 
 
 if __name__ == "__main__":
