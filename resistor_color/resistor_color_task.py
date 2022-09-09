@@ -1,6 +1,9 @@
 # Task from https://exercism.org/tracks/python/exercises/resistor-color
+import logging
 
-switch = {
+logging.basicConfig(level=logging.INFO)
+
+SWITCH = {
     "black": 0,
     "brown": 1,
     "red": 2,
@@ -13,22 +16,25 @@ switch = {
     "white": 9
 }
 
-colors_list = list(switch.keys())
+
+def color_code(color: str):
+    try:
+        return SWITCH.get(color)
+    except:
+        logging.error("Invalid input")
 
 
-def color_code(color):
-    return switch.get(color)
-
-
+# method to list all the existing colors
 def colors():
-    return colors_list
+    return list(SWITCH.keys())
 
 
 def main():
-    print(color_code("black"))
-    print(color_code("white"))
-    print(color_code("orange"))
-    print(colors())
+    logging.info(color_code("black"))
+    logging.info(color_code("white"))
+    logging.info(color_code("orange"))
+    logging.info(color_code("ivory"))  # error expected
+    logging.info(colors())
 
 
 if __name__ == "__main__":
