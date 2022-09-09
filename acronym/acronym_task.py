@@ -1,17 +1,34 @@
 # Task taken from https://exercism.org/tracks/python/exercises/acronym
+import logging
 
-def abbreviate(words):
-    result = ""
-    words_as_list = split_phrase_into_list_words(words)
-    for word in words_as_list:
-        result += word[0].upper()
-    return result
+logging.basicConfig(level=logging.INFO)
 
 
-def split_phrase_into_list_words(phrase):
-    phrase = phrase.replace("-", " ")
-    phrase = phrase.replace("_", " ")
-    phrase = phrase.replace("   ", " ")
-    phrase = phrase.replace("  ", " ")
+def abbreviate(words: str):
+    try:
+        result = ""
+        words_as_list = split_phrase(words)
+        for word in words_as_list:
+            try:
+                result += word[0].upper()
+            # if it can't be converted to upper, it's probably " "
+            except:
+                continue
+        return result
+    except:
+        logging.error("Invalid input")
 
-    return phrase.split(" ")
+
+def split_phrase(phrase):
+    words_list = phrase.split(" ")
+    return words_list
+
+
+def main():
+    logging.info(abbreviate("Halley's Comet"))  # expected: "HC"
+    logging.info(abbreviate("Halley's    Comet"))  # expected: "HC"
+    logging.info(abbreviate(["Jj"]))  # expected: error
+
+
+if __name__ == "__main__":
+    main()
