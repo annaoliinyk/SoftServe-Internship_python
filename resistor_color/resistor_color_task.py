@@ -25,7 +25,7 @@ def color_code(color: str):
 
 
 # method to list all the existing colors
-def colors():
+def get_colors():
     return list(SWITCH.keys())
 
 
@@ -34,7 +34,7 @@ def main():
     logging.info(color_code("white"))
     logging.info(color_code("orange"))
     logging.info(color_code("ivory"))  # error expected
-    logging.info(colors())
+    logging.info(get_colors())
 
 
 if __name__ == "__main__":
