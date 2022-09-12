@@ -3,7 +3,13 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-POSSIBLE_ANSWERS = ["Fine. Be that way!", "Sure.", "Calm down, I know what I'm doing!", "Whoa, chill out!", "Whatever."]
+POSSIBLE_ANSWERS = {
+    "say_nothing": "Fine. Be that way!",
+    "question": "Sure.",
+    "yell_question": "Calm down, I know what I'm doing!",
+    "yell": "Whoa, chill out!",
+    "else": "Whatever."
+}
 
 
 def response(hey_bob: str):
@@ -13,20 +19,20 @@ def response(hey_bob: str):
         hey_bob = hey_bob.strip()
         # case 1: empty string
         if hey_bob == "":
-            return POSSIBLE_ANSWERS[0]
+            return POSSIBLE_ANSWERS.get("say_nothing")
         # case 2: uppercase question
         elif hey_bob.endswith("?") and hey_bob == uppercase_hey:
-            return POSSIBLE_ANSWERS[2]
+            return POSSIBLE_ANSWERS.get("yell_question")
         # case 3: non-uppercase question
         elif hey_bob.endswith("?"):
-            return POSSIBLE_ANSWERS[1]
+            return POSSIBLE_ANSWERS.get("question")
         # case 4: uppercase string
         elif hey_bob == uppercase_hey:
-            return POSSIBLE_ANSWERS[3]
+            return POSSIBLE_ANSWERS.get("yell")
         # other cases or non-string provided
-        return POSSIBLE_ANSWERS[4]
+        return POSSIBLE_ANSWERS.get("else")
     except:
-        return POSSIBLE_ANSWERS[4]
+        return POSSIBLE_ANSWERS.get("else")
 
 
 def main():
