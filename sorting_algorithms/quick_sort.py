@@ -1,0 +1,16 @@
+def quick_sort():
+    list_to_sort = [8, 7, 29, 11, 47, 48, 6, 42]
+    print(f"Sorting list: {list_to_sort}")
+    print("Step 1: comparing all items to first element - 8:")
+    print([8, 7, 6, 11, 47, 48, 29, 42])
+    print([7, 6, 8, 11, 47, 48, 29, 42])
+    print("Step 2: Now splitting into 3 parts: < 8, 8, > 8:")
+    print([7, 6], [8], [11, 47, 48, 29, 42])
+    print("Step 3: Iterating parts through elements in parts like in 1st step:")
+    print([6, 7], [8], [11, 47, 48, 29, 42])
+    print([6, 7], [8], [11], [47, 48, 29, 42])
+    print([6, 7], [8], [11], [47, 29, 48, 42])
+    print([6, 7], [8], [11], [47, 29, 42, 48])
+    print([6, 7], [8], [11], [29, 42, 47, 48])
+    print("Finally, merging:")
+    print([6, 7, 8, 11, 29, 42, 47, 48])
