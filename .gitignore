@@ -1,6 +1,6 @@
 .idea/
 .git/
-grep/__pycache__/
+*/__pycache__/
 */*.pyc
 bin/
 *.bin
